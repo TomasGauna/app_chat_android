@@ -1,0 +1,24 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/inicio"></ion-back-button>
+  </ion-buttons>
+  <ion-title class="ion-text-center">PPS-4A</ion-title>
+</ion-toolbar>
+
+<ion-content class="container">
+  <div *ngFor="let obj of mensajesCargados">
+    <div [ngClass]="{'chat-bubble-propio': esUsuarioLogueado(obj.usuario), 'chat-bubble': !esUsuarioLogueado(obj.usuario) }">
+      <span class="span">{{ obj.usuario != email ? obj.usuario.split("@")[0] : "" }}</span>
+      <span>{{ obj.mensaje }}</span>
+      <span class="sfecha"> {{ obj.fecha }}</span>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+    <ion-item>
+      <ion-input placeholder="Escribe tu mensaje" clearInput maxlength="21" [(ngModel)]="mensaje"></ion-input>
+      <div (click)="enviar()"><ion-img class="message-image" slot="end" src="assets/icon/chat.png"></ion-img></div>
+    </ion-item>
+</ion-footer>
+    

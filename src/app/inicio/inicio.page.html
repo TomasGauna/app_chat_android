@@ -1,0 +1,29 @@
+<ion-content class="container">
+    <ion-fab slot="fixed" vertical="top" horizontal="end">
+      <ion-fab-button (click)="cerrarSesion()">
+        <img src="assets/cerrar-sesion.png">
+      </ion-fab-button>
+    </ion-fab>
+    <div class="overlay" *ngIf="mostrarSpinner">
+      <div id="wifi-loader">
+        <svg class="circle-outer" viewBox="0 0 86 86">
+          <circle class="back" cx="43" cy="43" r="40"></circle>
+          <circle class="front" cx="43" cy="43" r="40"></circle>
+          <circle class="new" cx="43" cy="43" r="40"></circle>
+        </svg>
+        <svg class="circle-middle" viewBox="0 0 60 60">
+          <circle class="back" cx="30" cy="30" r="27"></circle>
+          <circle class="front" cx="30" cy="30" r="27"></circle>
+        </svg>
+        <svg class="circle-inner" viewBox="0 0 34 34">
+          <circle class="back" cx="17" cy="17" r="14"></circle>
+          <circle class="front" cx="17" cy="17" r="14"></circle>
+        </svg>
+      </div>
+    </div>
+    
+    <div class="divBtn">
+      <ion-button class="A" (click)="entrarChat('a')">PPS-4A</ion-button>
+      <ion-button class="B" (click)="entrarChat('b')">PPS-4B</ion-button>
+    </div>
+</ion-content>

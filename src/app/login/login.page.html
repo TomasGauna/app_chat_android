@@ -1,0 +1,46 @@
+<ion-content class="container">
+  <ion-card-content class="container-div" shape="round">
+    
+    <div class="overlay" *ngIf="mostrarSpinner">
+      <div id="wifi-loader">
+        <svg class="circle-outer" viewBox="0 0 86 86">
+          <circle class="back" cx="43" cy="43" r="40"></circle>
+          <circle class="front" cx="43" cy="43" r="40"></circle>
+          <circle class="new" cx="43" cy="43" r="40"></circle>
+        </svg>
+        <svg class="circle-middle" viewBox="0 0 60 60">
+          <circle class="back" cx="30" cy="30" r="27"></circle>
+          <circle class="front" cx="30" cy="30" r="27"></circle>
+        </svg>
+        <svg class="circle-inner" viewBox="0 0 34 34">
+          <circle class="back" cx="17" cy="17" r="14"></circle>
+          <circle class="front" cx="17" cy="17" r="14"></circle>
+        </svg>
+      </div>
+    </div>
+    
+
+      <form class="form">
+        <div class="divBtnPick">
+          <ion-button class="button-pick" (click)="setOpen(true)">Usuarios</ion-button>
+          <ion-picker
+            [isOpen]="isPickerOpen"
+            [columns]="pickerColumns"
+            [buttons]="pickerButtons"
+            (didDismiss)="setOpen(false)"
+          ></ion-picker>
+        </div>
+        <div class="item">
+          <ion-input class="input" label="Correo electronico" label-placement="stacked" type="text" required [(ngModel)]="correo" name="email"></ion-input>
+        </div>
+        <div class="item">
+          <ion-input class="input" label="Contraseña" label-placement="stacked" type="password" required [(ngModel)]="clave" name="pass"></ion-input>
+        </div>
+        <div class="divBtn">
+          <ion-button class="button" (click)="ingresar()">Iniciar Sesión</ion-button>
+          <ion-button class="button" (click)="limpiarCampos()">Limpiar</ion-button>
+        </div>
+        <img class="reduced-image" src="assets/icon/chat.png">
+      </form>
+  </ion-card-content>
+</ion-content>
